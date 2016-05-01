@@ -1,0 +1,18 @@
+apply plugin: 'application'
+mainClassName = "com.myapp.Main"
+applicationName = "myapp"
+
+distributions {
+    main {
+        baseName = 'myapp'
+    }
+}
+
+tasks.startScripts {
+    defaultJvmOpts = ["-server", "-Xmx2048m", "-XX:+AggressiveOpts" ]
+    doLast {
+        def unixScriptFile = file getUnixScript()
+        unixScriptFile.text = unixScriptFile.text.replace('CLASSPATH=$APP_HOME/lib', 'CLASSPATH=$APP_HOME/config/:$APP_HOME/lib')
+        delete windowsScript
+    }
+}
