@@ -1,5 +1,5 @@
 ---
-page: http://www.idle.run/gradle-app
+page: https://idle.run/gradle-app
 title: "Gradle Application Customization"
 tags: swagger api nodejs
 date: 2016-04-12
